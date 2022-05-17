@@ -4,4 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import work21.api.experiment.domain.Experiment;
 
 public interface ExperimentRepository extends JpaRepository<Experiment, String> {
+    Experiment findTopByOrderByIdDesc();
+    Experiment findById(Long id);
+    void deleteById(Long id);
 }

@@ -1,16 +1,21 @@
 package work21.api.experiment.domain;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 public class Experiment {
 
     /**
@@ -23,7 +28,7 @@ public class Experiment {
 
     private String title;
 
-    private String image; //TODO: figure out how to store an image
+    private byte[] image;
 
     private String sentence;
 
@@ -41,8 +46,7 @@ public class Experiment {
 
     private SuccessFactor successFactor;
 
-    public Experiment(Long id, String title, String image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) {
-        this.id = id;
+    public Experiment(String title, byte[] image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) {
         this.title = title;
         this.image = image;
         this.sentence = sentence;
@@ -52,5 +56,20 @@ public class Experiment {
         this.difficulty = difficulty;
         this.use = use;
         this.successFactor = successFactor;
+    }
+
+    public String toString() {
+        return "Experiment{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", image=" + Arrays.toString(image) +
+                ", sentence='" + sentence + '\'' +
+                ", assignment=" + assignment +
+                ", result=" + result +
+                ", plateau=" + plateau +
+                ", difficulty=" + difficulty +
+                ", use=" + use +
+                ", successFactor=" + successFactor +
+                '}';
     }
 }
