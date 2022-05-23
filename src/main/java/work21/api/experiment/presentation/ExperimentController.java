@@ -27,7 +27,7 @@ public class ExperimentController {
         try {
             return experimentService.create(title, ImageUtility.compressImage(image.getBytes()), sentence, assignment, result, plateau, difficulty, use, successFactor);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 
@@ -39,7 +39,7 @@ public class ExperimentController {
             e.setImage(ImageUtility.decompressImage(e.getImage()));
             return e;
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 
@@ -48,7 +48,7 @@ public class ExperimentController {
         try {
             return experimentService.update(id, title, image, sentence, assignment, result, plateau, difficulty, use, successFactor);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 
@@ -66,7 +66,7 @@ public class ExperimentController {
         try {
             return experimentService.index();
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 }
