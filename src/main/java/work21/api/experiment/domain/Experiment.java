@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,16 +23,21 @@ public class Experiment {
     @GeneratedValue //TODO: check if this is correct id generation
     private Long id;
 
+    @Column(name = "title", length = 1000000)
     private String title;
 
+    @Column(name = "image", length = 1000000)
     private byte[] image;
 
+    @Column(name = "sentence", length = 1000000)
     private String sentence;
 
     @ElementCollection
+    @Column(name = "assignment", length = 1000000)
     private List<String> assignment = new ArrayList<>();
 
     @ElementCollection
+    @Column(name = "result", length = 1000000)
     private List<String> result = new ArrayList<>();
 
     private Integer plateau;

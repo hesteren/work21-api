@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/experiments")
+@CrossOrigin
 public class ExperimentController {
 
     private final ExperimentService experimentService;
