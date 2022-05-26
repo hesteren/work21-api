@@ -72,7 +72,7 @@ public class ExperimentServiceImpl implements ExperimentService {
                 e.setDifficulty(difficulty);
             }
             if (successFactor != null) {
-                e.setSuccessFactor(successFactor);
+                e.setSuccessfactor(successFactor);
             }
 
             experimentRepository.save(e);

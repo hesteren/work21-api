@@ -46,9 +46,9 @@ public class Experiment {
 
     private Usage use;
 
-    private SuccessFactor successFactor;
+    private SuccessFactor successfactor;
 
-    public Experiment(String title, String image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) {
+    public Experiment(String title, String image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successfactor) {
         this.title = title;
         this.image = image;
         this.sentence = sentence;
@@ -57,7 +57,7 @@ public class Experiment {
         this.plateau = plateau;
         this.difficulty = difficulty;
         this.use = use;
-        this.successFactor = successFactor;
+        this.successfactor = successfactor;
     }
 
     public String toString() {
@@ -71,7 +71,7 @@ public class Experiment {
                 ", plateau=" + plateau +
                 ", difficulty=" + difficulty +
                 ", use=" + use +
-                ", successFactor=" + successFactor +
+                ", successFactor=" + successfactor +
                 '}';
     }
 }

@@ -23,9 +23,9 @@ public class ExperimentController {
     //TODO: custom exception handling
 
     @PostMapping
-    public Experiment create(@RequestParam String title, @RequestParam MultipartFile image, @RequestParam String sentence, @RequestParam List<String> assignment, @RequestParam List<String> result, @RequestParam Integer plateau, @RequestParam Integer difficulty, @RequestParam Usage use, @RequestParam SuccessFactor successFactor) {
+    public Experiment create(@RequestParam String title, @RequestParam MultipartFile image, @RequestParam String sentence, @RequestParam List<String> assignment, @RequestParam List<String> result, @RequestParam Integer plateau, @RequestParam Integer difficulty, @RequestParam Usage use, @RequestParam SuccessFactor successfactor) {
         try {
-            return experimentService.create(title, image.getBytes(), sentence, assignment, result, plateau, difficulty, use, successFactor);
+            return experimentService.create(title, image.getBytes(), sentence, assignment, result, plateau, difficulty, use, successfactor);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
