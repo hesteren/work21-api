@@ -1,6 +1,7 @@
 package work21.api.experiment.application;
 
 import lombok.AllArgsConstructor;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import work21.api.experiment.data.ExperimentRepository;
@@ -24,7 +25,10 @@ public class ExperimentServiceImpl implements ExperimentService {
 
     public Experiment create(String title, byte[] image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) throws IOException {
 
-        Experiment e = new Experiment(title, image, sentence, assignment, result, plateau, difficulty, use, successFactor);
+        // convert image to base64
+        String base64 = new String(Base64.encodeBase64(image));
+
+        Experiment e = new Experiment(title, base64, sentence, assignment, result, plateau, difficulty, use, successFactor);
 
         experimentRepository.save(e);
 
@@ -32,11 +36,13 @@ public class ExperimentServiceImpl implements ExperimentService {
     }
 
     public Experiment read(Long id) {
-
         return experimentRepository.findById(id);
     }
 
-    public Experiment update(Long id, String title, MultipartFile image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) throws IOException {
+    public Experiment update(Long id, String title, byte[] image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) throws IOException {
+
+        // convert image to base64
+        String base64 = new String(Base64.encodeBase64(image));
 
         Experiment e = experimentRepository.findById(id);
 
@@ -45,7 +51,7 @@ public class ExperimentServiceImpl implements ExperimentService {
                 e.setTitle(title);
             }
             if (image != null) {
-                e.setImage(ImageUtility.compressImage(image.getBytes()));
+                e.setImage(base64);
             }
             if (sentence != null) {
                 e.setSentence(sentence);

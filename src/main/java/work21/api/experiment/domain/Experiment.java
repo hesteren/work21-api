@@ -27,7 +27,7 @@ public class Experiment {
     private String title;
 
     @Column(name = "image", length = 1000000)
-    private byte[] image;
+    private String image;
 
     @Column(name = "sentence", length = 1000000)
     private String sentence;
@@ -48,7 +48,7 @@ public class Experiment {
 
     private SuccessFactor successFactor;
 
-    public Experiment(String title, byte[] image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) {
+    public Experiment(String title, String image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) {
         this.title = title;
         this.image = image;
         this.sentence = sentence;
@@ -64,7 +64,7 @@ public class Experiment {
         return "Experiment{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", image=" + Arrays.toString(image) +
+                ", image=" + image +
                 ", sentence='" + sentence + '\'' +
                 ", assignment=" + assignment +
                 ", result=" + result +

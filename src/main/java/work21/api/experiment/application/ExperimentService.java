@@ -11,7 +11,7 @@ import java.util.List;
 public interface ExperimentService {
     Experiment create(String title, byte[] image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) throws IOException;
     Experiment read(Long id);
-    Experiment update(Long id, String title, MultipartFile image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) throws IOException;
+    Experiment update(Long id, String title, byte[] image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) throws IOException;
     void delete(Long id);
     List<Experiment> index();
 }

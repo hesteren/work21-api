@@ -9,7 +9,6 @@ import work21.api.experiment.application.ExperimentService;
 import work21.api.experiment.domain.Experiment;
 import work21.api.experiment.domain.SuccessFactor;
 import work21.api.experiment.domain.Usage;
-import work21.api.experiment.util.ImageUtility;
 
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class ExperimentController {
     @PostMapping
     public Experiment create(@RequestParam String title, @RequestParam MultipartFile image, @RequestParam String sentence, @RequestParam List<String> assignment, @RequestParam List<String> result, @RequestParam Integer plateau, @RequestParam Integer difficulty, @RequestParam Usage use, @RequestParam SuccessFactor successFactor) {
         try {
-            return experimentService.create(title, ImageUtility.compressImage(image.getBytes()), sentence, assignment, result, plateau, difficulty, use, successFactor);
+            return experimentService.create(title, image.getBytes(), sentence, assignment, result, plateau, difficulty, use, successFactor);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
@@ -35,10 +34,7 @@ public class ExperimentController {
     @GetMapping("/{id}")
     public Experiment read(@PathVariable Long id) {
         try {
-            // decompress here because the database will stay compressed this way
-            Experiment e = experimentService.read(id);
-            e.setImage(ImageUtility.decompressImage(e.getImage()));
-            return e;
+            return experimentService.read(id);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
@@ -47,7 +43,7 @@ public class ExperimentController {
     @PutMapping("/{id}")
     public Experiment update(@PathVariable Long id, @RequestParam(required=false) String title, @RequestParam(required=false) MultipartFile image, @RequestParam(required=false) String sentence, @RequestParam(required=false) List<String> assignment, @RequestParam(required=false) List<String> result, @RequestParam(required=false) Integer plateau, @RequestParam(required=false) Integer difficulty, @RequestParam(required=false) Usage use, @RequestParam(required=false) SuccessFactor successFactor) {
         try {
-            return experimentService.update(id, title, image, sentence, assignment, result, plateau, difficulty, use, successFactor);
+            return experimentService.update(id, title, image.getBytes(), sentence, assignment, result, plateau, difficulty, use, successFactor);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
