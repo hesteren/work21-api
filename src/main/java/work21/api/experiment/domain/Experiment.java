@@ -74,4 +74,37 @@ public class Experiment {
                 ", successFactor=" + successfactor +
                 '}';
     }
+
+    public void updateExperiment(Experiment experiment) {
+
+        if (title != null) {
+            this.setTitle(title);
+        }
+        if (experiment.image != null) {
+            this.setImage(experiment.image);
+        }
+        if (experiment.sentence != null) {
+            this.setSentence(experiment.sentence);
+        }
+        if (experiment.assignment != null) {
+            this.setAssignment(experiment.assignment);
+        }
+        if (experiment.result != null) {
+            this.setResult(experiment.result);
+        }
+        if (experiment.plateau != null) {
+            this.setPlateau(experiment.plateau);
+        }
+        if (experiment.difficulty != null) {
+            this.setDifficulty(experiment.difficulty);
+        }
+        if (experiment.use != null) {
+            this.setDifficulty(experiment.difficulty);
+        }
+        if (experiment.successfactor != null) {
+            this.setSuccessfactor(experiment.successfactor);
+        }
+    }
+
 }
+

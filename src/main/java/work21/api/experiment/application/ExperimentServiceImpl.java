@@ -45,36 +45,10 @@ public class ExperimentServiceImpl implements ExperimentService {
         String base64 = new String(Base64.encodeBase64(image));
 
         Experiment e = experimentRepository.findById(id);
+        Experiment eUpdate = new Experiment(title, base64, sentence, assignment, result, plateau, difficulty, use, successFactor);
 
-        if (e != null) {
-            if (title != null) {
-                e.setTitle(title);
-            }
-            if (image != null) {
-                e.setImage(base64);
-            }
-            if (sentence != null) {
-                e.setSentence(sentence);
-            }
-            if (assignment != null) {
-                e.setAssignment(assignment);
-            }
-            if (result != null) {
-                e.setResult(result);
-            }
-            if (plateau != null) {
-                e.setPlateau(plateau);
-            }
-            if (difficulty != null) {
-                e.setDifficulty(difficulty);
-            }
-            if (use != null) {
-                e.setDifficulty(difficulty);
-            }
-            if (successFactor != null) {
-                e.setSuccessfactor(successFactor);
-            }
-
+        if(e != null) {
+            e.updateExperiment(eUpdate);
             experimentRepository.save(e);
         }
 
