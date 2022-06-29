@@ -23,7 +23,16 @@ public class ExperimentController {
     //TODO: custom exception handling
 
     @PostMapping
-    public Experiment create(@RequestParam String title, @RequestParam MultipartFile image, @RequestParam String sentence, @RequestParam List<String> assignment, @RequestParam List<String> result, @RequestParam Integer plateau, @RequestParam Integer difficulty, @RequestParam Usage use, @RequestParam SuccessFactor successfactor) {
+    public Experiment create(
+            @RequestParam String title,
+            @RequestParam MultipartFile image,
+            @RequestParam String sentence,
+            @RequestParam List<String> assignment,
+            @RequestParam List<String> result,
+            @RequestParam Integer plateau,
+            @RequestParam Integer difficulty,
+            @RequestParam Usage use,
+            @RequestParam SuccessFactor successfactor) {
         try {
             return experimentService.create(title, image.getBytes(), sentence, assignment, result, plateau, difficulty, use, successfactor);
         } catch (Exception e) {
@@ -41,7 +50,17 @@ public class ExperimentController {
     }
 
     @PutMapping("/{id}")
-    public Experiment update(@PathVariable Long id, @RequestParam(required=false) String title, @RequestParam(required=false) MultipartFile image, @RequestParam(required=false) String sentence, @RequestParam(required=false) List<String> assignment, @RequestParam(required=false) List<String> result, @RequestParam(required=false) Integer plateau, @RequestParam(required=false) Integer difficulty, @RequestParam(required=false) Usage use, @RequestParam(required=false) SuccessFactor successFactor) {
+    public Experiment update(
+            @PathVariable Long id,
+            @RequestParam(required=false) String title,
+            @RequestParam(required=false) MultipartFile image,
+            @RequestParam(required=false) String sentence,
+            @RequestParam(required=false) List<String> assignment,
+            @RequestParam(required=false) List<String> result,
+            @RequestParam(required=false) Integer plateau,
+            @RequestParam(required=false) Integer difficulty,
+            @RequestParam(required=false) Usage use,
+            @RequestParam(required=false) SuccessFactor successFactor) {
         try {
             return experimentService.update(id, title, image.getBytes(), sentence, assignment, result, plateau, difficulty, use, successFactor);
         } catch (Exception e) {
@@ -58,7 +77,7 @@ public class ExperimentController {
         }
     }
 
-    @GetMapping("/index")
+    @GetMapping("")
     public List<Experiment> index() {
         try {
             return experimentService.index();
