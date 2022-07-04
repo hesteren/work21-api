@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class LoginController {
 
-    @PutMapping
+    @PostMapping
     public void login() {}
 }

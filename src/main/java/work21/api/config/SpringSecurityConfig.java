@@ -35,7 +35,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .authorizeHttpRequests()
-                .antMatchers(PUT, "/login")
+                .antMatchers(POST, "/login")
                 .authenticated()
                 .and()
                 .authorizeRequests()
