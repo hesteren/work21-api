@@ -20,8 +20,6 @@ public class ExperimentController {
 
     private final ExperimentService experimentService;
 
-    //TODO: custom exception handling
-
     @PostMapping
     public Experiment create(
             @RequestParam String title,
