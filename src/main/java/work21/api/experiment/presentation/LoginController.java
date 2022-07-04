@@ -15,6 +15,6 @@ public class LoginController {
     @PostMapping
     public void login (HttpServletResponse response) {
 //        response.addHeader("Access-Control-Expose-Headers", "*, Authorization, Set-Cookie");
-            response.addHeader("Access-Control-Expose-Headers", "Set-Cookie");
+        response.addHeader("Access-Control-Expose-Headers", "Set-Cookie");
     }
 }
