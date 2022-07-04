@@ -4,11 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import work21.api.experiment.application.IService;
-import work21.api.experiment.data.UserRepository;
-import work21.api.experiment.domain.Role;
-import work21.api.experiment.domain.User;
 
 @SpringBootApplication
 public class Api implements CommandLineRunner {
