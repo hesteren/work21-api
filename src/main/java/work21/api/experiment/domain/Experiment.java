@@ -75,36 +75,34 @@ public class Experiment {
                 '}';
     }
 
-    public void updateExperiment(Experiment experiment) {
+    public void updateExperiment(String title, String image, String sentence, List<String> assignment, List<String> result, Integer plateau, Integer difficulty, Usage use, SuccessFactor successFactor) {
 
         if (title != null) {
-            this.setTitle(title);
+            setTitle(title);
         }
-        if (experiment.image != null) {
-            this.setImage(experiment.image);
+        if (image != null) {
+            setImage(image);
         }
-        if (experiment.sentence != null) {
-            this.setSentence(experiment.sentence);
+        if (sentence != null) {
+            setSentence(sentence);
         }
-        if (experiment.assignment != null) {
-            this.setAssignment(experiment.assignment);
+        if (assignment != null) {
+            setAssignment(assignment);
         }
-        if (experiment.result != null) {
-            this.setResult(experiment.result);
+        if (result != null) {
+            setResult(result);
         }
-        if (experiment.plateau != null) {
-            this.setPlateau(experiment.plateau);
+        if (plateau != null) {
+            setPlateau(plateau);
         }
-        if (experiment.difficulty != null) {
-            this.setDifficulty(experiment.difficulty);
+        if (difficulty != null) {
+            setDifficulty(difficulty);
         }
-        if (experiment.use != null) {
-            this.setDifficulty(experiment.difficulty);
+        if (use != null) {
+            setDifficulty(difficulty);
         }
-        if (experiment.successfactor != null) {
-            this.setSuccessfactor(experiment.successfactor);
+        if (successFactor != null) {
+            setSuccessfactor(successFactor);
         }
     }
-
 }
-
