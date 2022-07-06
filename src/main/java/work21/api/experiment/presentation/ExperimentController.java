@@ -58,9 +58,9 @@ public class ExperimentController {
             @RequestParam(required=false) Integer plateau,
             @RequestParam(required=false) Integer difficulty,
             @RequestParam(required=false) Usage use,
-            @RequestParam(required=false) SuccessFactor successFactor) {
+            @RequestParam(required=false) SuccessFactor successfactor) {
         try {
-            return experimentService.update(id, title, image.getBytes(), sentence, assignment, result, plateau, difficulty, use, successFactor);
+            return experimentService.update(id, title, image.getBytes(), sentence, assignment, result, plateau, difficulty, use, successfactor);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
